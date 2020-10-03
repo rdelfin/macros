@@ -1,0 +1,5 @@
+CREATE TABLE macros (
+    id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+    name TEXT UNIQUE,
+    image BLOB
+);
