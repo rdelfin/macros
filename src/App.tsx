@@ -10,6 +10,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import CardActions from "@material-ui/core/CardActions";
+import MacroCard from "./MacroCard";
 
 const useStyles = makeStyles({
     root: {
@@ -34,25 +35,7 @@ function App() {
 
     return (
         <Container maxWidth="sm">
-            <Card className={classes.root}>
-                <CardContent>
-                    <Typography
-                        className={classes.title}
-                        color="textSecondary"
-                        gutterBottom
-                    >
-                        Word of the Day
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                        be{bull}nev{bull}o{bull}lent
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small" onClick={() => alert("lolwat")}>
-                        Hello World
-                    </Button>
-                </CardActions>
-            </Card>
+            <MacroCard></MacroCard>
         </Container>
     );
 }
