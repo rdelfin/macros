@@ -84,7 +84,7 @@ interface State {
 }
 
 class SiteDrawer extends React.Component<Props, State> {
-    constructor(props: WithStyles<typeof styles>) {
+    constructor(props: Props) {
         super(props);
         this.state = { open: false };
     }
