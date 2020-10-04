@@ -50,6 +50,6 @@
         }
     },
     "lint-staged": {
-        "*": "prettier --write --require-pragma --tab-width 4"
+        "*.tsx": "prettier --write --require-pragma --tab-width 4"
     }
 }
