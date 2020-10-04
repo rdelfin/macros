@@ -41,7 +41,7 @@ class MacroList extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8000/macros")
+        fetch(process.env.REACT_APP_API_DIR + "/macros")
             .then((response) => response.json())
             .then((data) => {
                 console.log("Data: " + data);
