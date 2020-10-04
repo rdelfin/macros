@@ -10,7 +10,12 @@ extern crate rocket_contrib;
 #[macro_use]
 extern crate diesel;
 
+use rocket::{
+    http::{ContentType, Header},
+    response::Stream,
+};
 use rocket_contrib::json::JsonValue;
+use std::io::{self, prelude::*, Cursor};
 
 #[get("/")]
 fn index() -> &'static str {
@@ -26,6 +31,14 @@ fn macros() -> JsonValue {
     json!({ "macros": macros })
 }
 
+#[get("/macro/<name>")]
+fn get_macro(name: String) -> Stream<Cursor<Vec<u8>>> {
+    let image_data = data::fetch_macro_image(&name).expect("Macro not found");
+    Stream::chunked(Cursor::new(image_data), 100)
+}
+
 fn main() {
-    rocket::ignite().mount("/", routes![index, macros]).launch();
+    rocket::ignite()
+        .mount("/", routes![index, macros, get_macro])
+        .launch();
 }
