@@ -1,0 +1,12 @@
+[Unit]
+Description=API Server
+
+[Service]
+Environment=PWD=/root/api_server
+ExecStart=/root/api_server/target/release/api
+WorkingDirectory=/root/api_server
+StandardOutput=file:/var/log/apilog/out.log
+StandardError=file:/var/log/apilog/err.log
+
+[Install]
+WantedBy=multi-user.target

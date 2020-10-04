@@ -1,0 +1,14 @@
+[Unit]
+Description=UI Server
+
+[Service]
+Environment=PORT=3000
+ExecStart=/usr/bin/serve -s /root/ui_server/build
+WorkingDirectory=/root/ui_server
+StandardOutput=append:/var/log/uilog.out
+StandardError=append:/var/log/uilog.err
+StandardOutput=file:/var/log/irctweeter/out.log
+StandardError=file:/var/log/irctweeter/err.log
+
+[Install]
+WantedBy=multi-user.target
